@@ -47,9 +47,9 @@ salario_diputado=int(input("Introduce el salario diputado: "))
 print("Tu salario es: $%d"%(salario_diputado))
 
 if salario_presidente>100 and salario_diputado>100:
-    print("Economicamente estamos bien")
+    print("Economicamente y estamos bien")
 if salario_presidente>100 or salario_diputado>100:
-    print("Economicamente estamos bien")
+    print("Economicamente o estamos bien")
 
 #Todos los condicionales con minuscula y pasar el parametro string con el metodo lower()
 opcion=input("Ingrese materia: ")
@@ -58,3 +58,22 @@ if asignatura in ("programacion","matematica","lengua","arte"):
     print("Esta dentro de las opciones...")
 else:
     print("No estan entre las opciones")
+
+#yield from
+#bucles anidados adentro del generador
+#nos devuelve un objeto generador donde se almacenan valores uno a uno
+#puede ser listas, tuplas, diccionarios 
+#si queremos ingresar en esos campos hay que usar el from
+def devuelve_ciudadesI(*ciudades): # * Numero inderterminado de elementos en forma de tupla
+    for elemento in ciudades: #Padre o Principal
+        for subElemento in elemento: #Hijo
+            yield subElemento
+def devuelve_ciudadesII(*ciudades):
+    for elemento in ciudades:
+        yield from elemento
+
+ciudades_devueltas=devuelve_ciudadesI("Madrid","Barcelona","Bilbao","Valencia")
+print(next(ciudades_devueltas))
+print(next(ciudades_devueltas))
+ciudades_devueltas=devuelve_ciudadesII("Argentina","Bolivia","Chile","Colombia")
+print(next(ciudades_devueltas))
