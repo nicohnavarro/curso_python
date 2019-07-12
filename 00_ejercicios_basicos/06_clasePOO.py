@@ -55,3 +55,39 @@ miCoche2=Coche()
 miCoche2.Arrancar(False)
 miCoche2.Estado()
 miCoche2.Arrancar(True)
+
+#HERENCIA
+class Vehiculos():
+
+    def __init__(self,marca,modelo):
+        self.__marca=marca
+        self.__modelo=modelo
+        self.__enmarcha=False
+        self.__acelera=False
+        self.__frena=False
+    
+    def arrancar(self):
+        self.__enmarcha=True
+
+    def acelerar(self):
+        self.__acelera=True
+
+    def frenar(self):
+        self.__frena=True
+    
+    def estado(self):
+        print("Marca: ",self.__marca,"\nModelo: ",self.__modelo)
+        print("En Marcha:",self.__enmarcha,"\nAcelerando: ",self.__acelera,"\nFrenando: ",self.__frena)
+
+print("\n------------------------Herencia------------------------")
+class Moto(Vehiculos): #Entre parentesis le pasamos la clase padre
+    pass
+
+#Mi Programa
+miMoto=Moto("Honda","FR125")
+miMoto.estado()
+print("\n")
+miMoto.acelerar()
+miMoto.estado()
+
+#PYTHON ADMITE HERENCIA MULTIPLE
