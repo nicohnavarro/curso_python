@@ -60,34 +60,60 @@ miCoche2.Arrancar(True)
 class Vehiculos():
 
     def __init__(self,marca,modelo):
-        self.__marca=marca
-        self.__modelo=modelo
-        self.__enmarcha=False
-        self.__acelera=False
-        self.__frena=False
+        self.marca=marca
+        self.modelo=modelo
+        self.enmarcha=False
+        self.acelera=False
+        self.frena=False
     
     def arrancar(self):
-        self.__enmarcha=True
+        self.enmarcha=True
 
     def acelerar(self):
-        self.__acelera=True
+        self.acelera=True
 
     def frenar(self):
-        self.__frena=True
+        self.frena=True
     
     def estado(self):
-        print("Marca: ",self.__marca,"\nModelo: ",self.__modelo)
-        print("En Marcha:",self.__enmarcha,"\nAcelerando: ",self.__acelera,"\nFrenando: ",self.__frena)
+        print("Marca: ",self.marca,"\nModelo: ",self.modelo)
+        print("En Marcha:",self.enmarcha,"\nAcelerando: ",self.acelera,"\nFrenando: ",self.frena)
 
 print("\n------------------------Herencia------------------------")
 class Moto(Vehiculos): #Entre parentesis le pasamos la clase padre
-    pass
+    hacecaballito=" "
+    def caballito(self):
+        self.hacecaballito="Voy haciendo caballito!"
+    
+    def estado(self): #Siempre se sobreescribe el metodo de la clase padre nunca va a llamar al otro metodo
+        print("Marca: ",self.marca,"\nModelo: ",self.modelo)
+        print("En Marcha:",self.enmarcha,"\nAcelerando: ",self.acelera,"\nFrenando: ",self.frena)
+        print(self.hacecaballito)
 
+    
 #Mi Programa
 miMoto=Moto("Honda","FR125")
 miMoto.estado()
 print("\n")
 miMoto.acelerar()
 miMoto.estado()
-
+miMoto.caballito()
+miMoto.estado()
 #PYTHON ADMITE HERENCIA MULTIPLE
+class EVehiculos(Vehiculos):
+    def __init__(self,marca,modelo):
+        super().__init__(marca,modelo)
+        self.autonomia=100
+
+    def cargarEnergia(self):
+        self.cargando=True
+
+#class BicicletaElectrica(Vehiculos,EVehiculos): #Hereda de ambas clases pero siempre tomando como prioridad a la primera clase
+class BicicletaElectrica(EVehiculos,Vehiculos): 
+    pass
+
+print("\n------------------------Herencia Multiple------------------------")
+miBici=BicicletaElectrica("Orbea","HC1900")
+miBici.estado()
+
+#Funcion super() donde la coloques va a llamar al metodo de la clase padre
