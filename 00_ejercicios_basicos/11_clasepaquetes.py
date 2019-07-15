@@ -5,8 +5,13 @@
 #Se pueden incluso agregar paquetes a tu paquete
 #Utilizaremos el paquete calculos->calculos_generales
 
-from paquete_calculos.calculos_generales import dividir,potenciar,redondear
+#Ahora funciona desde cualquier lugar porque el paquete 
+#ya esta instalado en la version de python
+from paquetes.paquete_calculos.calculos_generales import dividir
 dividir(4,6)
-potenciar(2,8)
-redondear(4.23)
+
+
+#Paquetes Distribuibles 
+#Crear paquetes -> Instalar Paquetes
+#Este donde este lo puedo ejecutar 
 

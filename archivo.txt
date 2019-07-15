@@ -1,0 +1,4 @@
+Linea 1: Estamos escribiendo en un archivo
+Linea 2: Seguimos...
+Linea 3: Estamos agregando texto a nuestro archivo
+Linea 4.
