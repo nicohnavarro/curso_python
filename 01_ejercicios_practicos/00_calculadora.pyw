@@ -28,6 +28,13 @@ def suma(num):
     operador="suma"
     numeroPantalla.set(resultado)
 
+#-----------------Funcion resultado----------------
+def el_resultado():
+    global resultado
+    numeroPantalla.set(resultado+int(numeroPantalla.get()))
+    resultado=0
+
+
 #-----------------Fila 1---------------------------
 btnSiete=Button(miFrame,text="7",width=3,background="grey",command=lambda:numeroPulsado("7"))
 btnSiete.grid(row=2,column=1)
@@ -63,7 +70,7 @@ btnComa=Button(miFrame,text=",",width=3,background="black",fg="white",command=la
 btnComa.grid(row=5,column=1)
 btnCero=Button(miFrame,text="0",width=3,background="white",command=lambda:numeroPulsado("0"))
 btnCero.grid(row=5,column=2)
-btnIgual=Button(miFrame,text="=",width=3,background="black",fg="yellow")
+btnIgual=Button(miFrame,text="=",width=3,background="black",fg="yellow",command=lambda:el_resultado())
 btnIgual.grid(row=5,column=3)
 btnSuma=Button(miFrame,text="+",width=3,background="black",fg="green",command=lambda:suma(numeroPantalla.get()))
 btnSuma.grid(row=5,column=4)
